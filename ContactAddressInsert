@@ -1,6 +1,6 @@
 trigger InsertContactAddressonCreate on Contact (after insert) {
         rC_Bios__Contact_Address__c ConAdd=new rC_Bios__Contact_Address__c();
-    for(Contact c:trigger.new)
+    for(Contact c:trigger.new) {
     
     If (c.MailingStreet <> null) {{
         ConAdd.rC_Bios__Contact__c=c.id;
@@ -13,4 +13,5 @@ trigger InsertContactAddressonCreate on Contact (after insert) {
     }
         
             insert ConAdd;}
+}
 }
