@@ -1,6 +1,6 @@
 trigger InsertAccountAddressonCreate on Account (after insert) {
         rC_Bios__Account_Address__c AccAdd=new rC_Bios__Account_Address__c();
-    for(Account a:trigger.new)
+    for(Account a:trigger.new) {
     
     If (a.BillingStreet <> null) {{
         AccAdd.rC_Bios__Contact__c=a.id;
@@ -13,4 +13,5 @@ trigger InsertAccountAddressonCreate on Account (after insert) {
     }
         
             insert AccAdd;}
+}
 }
